@@ -12,13 +12,17 @@
 		2C570180278046F900EAAE52 /* RiskLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57017F278046F900EAAE52 /* RiskLevel.swift */; };
 		2C5701822780470500EAAE52 /* ReportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5701812780470500EAAE52 /* ReportType.swift */; };
 		2C5701862780538400EAAE52 /* DateFormatter+Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5701852780538400EAAE52 /* DateFormatter+Spec.swift */; };
-		2C5701882780593F00EAAE52 /* CococENManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5701872780593F00EAAE52 /* CococENManager.swift */; };
+		2C5701882780593F00EAAE52 /* ExposureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5701872780593F00EAAE52 /* ExposureManager.swift */; };
 		2C57018B27805AA800EAAE52 /* ENManager+Backport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57018A27805AA800EAAE52 /* ENManager+Backport.swift */; };
 		2C57018D27805D6300EAAE52 /* CocoaErorr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57018C27805D6300EAAE52 /* CocoaErorr.swift */; };
 		2C57019027805F4400EAAE52 /* URLSession+Backport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57018F27805F4400EAAE52 /* URLSession+Backport.swift */; };
 		2C5701952780642D00EAAE52 /* URLRequest+Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5701942780642D00EAAE52 /* URLRequest+Spec.swift */; };
 		2C5701972780643B00EAAE52 /* URL+Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5701962780643B00EAAE52 /* URL+Spec.swift */; };
 		2C57019E27807A2F00EAAE52 /* Array+UInt8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57019D27807A2F00EAAE52 /* Array+UInt8.swift */; };
+		2C5701A2278145F000EAAE52 /* UNUserNotificationCenter+Backport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5701A1278145F000EAAE52 /* UNUserNotificationCenter+Backport.swift */; };
+		2C5701A427814BB000EAAE52 /* Date+Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5701A327814BAF00EAAE52 /* Date+Spec.swift */; };
+		2C5701A62781518300EAAE52 /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5701A52781518300EAAE52 /* LocalStore.swift */; };
+		2C5701A82781767800EAAE52 /* ExposureConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5701A72781767800EAAE52 /* ExposureConfiguration.swift */; };
 		2C9526BC277EB16D005DE269 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9526BB277EB16D005DE269 /* AppDelegate.swift */; };
 		2C9526BE277EB16D005DE269 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9526BD277EB16D005DE269 /* SceneDelegate.swift */; };
 		2C9526C0277EB16D005DE269 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9526BF277EB16D005DE269 /* ViewController.swift */; };
@@ -69,7 +73,7 @@
 		2C57017F278046F900EAAE52 /* RiskLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskLevel.swift; sourceTree = "<group>"; };
 		2C5701812780470500EAAE52 /* ReportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportType.swift; sourceTree = "<group>"; };
 		2C5701852780538400EAAE52 /* DateFormatter+Spec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Spec.swift"; sourceTree = "<group>"; };
-		2C5701872780593F00EAAE52 /* CococENManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CococENManager.swift; sourceTree = "<group>"; };
+		2C5701872780593F00EAAE52 /* ExposureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureManager.swift; sourceTree = "<group>"; };
 		2C57018A27805AA800EAAE52 /* ENManager+Backport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ENManager+Backport.swift"; sourceTree = "<group>"; };
 		2C57018C27805D6300EAAE52 /* CocoaErorr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaErorr.swift; sourceTree = "<group>"; };
 		2C57018F27805F4400EAAE52 /* URLSession+Backport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Backport.swift"; sourceTree = "<group>"; };
@@ -77,6 +81,10 @@
 		2C5701942780642D00EAAE52 /* URLRequest+Spec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Spec.swift"; sourceTree = "<group>"; };
 		2C5701962780643B00EAAE52 /* URL+Spec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Spec.swift"; sourceTree = "<group>"; };
 		2C57019D27807A2F00EAAE52 /* Array+UInt8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+UInt8.swift"; sourceTree = "<group>"; };
+		2C5701A1278145F000EAAE52 /* UNUserNotificationCenter+Backport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNUserNotificationCenter+Backport.swift"; sourceTree = "<group>"; };
+		2C5701A327814BAF00EAAE52 /* Date+Spec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Spec.swift"; sourceTree = "<group>"; };
+		2C5701A52781518300EAAE52 /* LocalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
+		2C5701A72781767800EAAE52 /* ExposureConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureConfiguration.swift; sourceTree = "<group>"; };
 		2C9526B8277EB16D005DE269 /* covid19radar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = covid19radar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C9526BB277EB16D005DE269 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C9526BD277EB16D005DE269 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +157,7 @@
 			children = (
 				2C57018A27805AA800EAAE52 /* ENManager+Backport.swift */,
 				2C57018F27805F4400EAAE52 /* URLSession+Backport.swift */,
+				2C5701A1278145F000EAAE52 /* UNUserNotificationCenter+Backport.swift */,
 			);
 			path = Backport;
 			sourceTree = "<group>";
@@ -174,7 +183,7 @@
 		2C57019A2780648900EAAE52 /* ExposureNotification */ = {
 			isa = PBXGroup;
 			children = (
-				2C5701872780593F00EAAE52 /* CococENManager.swift */,
+				2C5701872780593F00EAAE52 /* ExposureManager.swift */,
 			);
 			path = ExposureNotification;
 			sourceTree = "<group>";
@@ -184,6 +193,7 @@
 			children = (
 				2C5701852780538400EAAE52 /* DateFormatter+Spec.swift */,
 				2C57019D27807A2F00EAAE52 /* Array+UInt8.swift */,
+				2C5701A327814BAF00EAAE52 /* Date+Spec.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -191,9 +201,11 @@
 		2C57019C278064AA00EAAE52 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				2C5701A52781518300EAAE52 /* LocalStore.swift */,
 				2C57017B278046D900EAAE52 /* DiagnosisSubmission.swift */,
 				2C57017F278046F900EAAE52 /* RiskLevel.swift */,
 				2C5701812780470500EAAE52 /* ReportType.swift */,
+				2C5701A72781767800EAAE52 /* ExposureConfiguration.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -440,13 +452,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C5701882780593F00EAAE52 /* CococENManager.swift in Sources */,
+				2C5701882780593F00EAAE52 /* ExposureManager.swift in Sources */,
 				2C570180278046F900EAAE52 /* RiskLevel.swift in Sources */,
+				2C5701A427814BB000EAAE52 /* Date+Spec.swift in Sources */,
 				2C5701822780470500EAAE52 /* ReportType.swift in Sources */,
 				2C57017A2780421F00EAAE52 /* URLSession+Spec.swift in Sources */,
 				2C9526EE277EBBEB005DE269 /* DefaultButton.swift in Sources */,
 				2C9526C0277EB16D005DE269 /* ViewController.swift in Sources */,
 				2C9526FE277ECF43005DE269 /* TabBarController.swift in Sources */,
+				2C5701A62781518300EAAE52 /* LocalStore.swift in Sources */,
 				2C9526F6277EC26C005DE269 /* ExposureCard.swift in Sources */,
 				2C95270E277EEB04005DE269 /* HowToTraceExposure.swift in Sources */,
 				2C5701952780642D00EAAE52 /* URLRequest+Spec.swift in Sources */,
@@ -456,12 +470,14 @@
 				2C9526F4277EC230005DE269 /* HelthCheckBoard.swift in Sources */,
 				2C5701972780643B00EAAE52 /* URL+Spec.swift in Sources */,
 				2C9526F2277EC1D1005DE269 /* CardBackground.swift in Sources */,
+				2C5701A82781767800EAAE52 /* ExposureConfiguration.swift in Sources */,
 				2C57018D27805D6300EAAE52 /* CocoaErorr.swift in Sources */,
 				2C952705277ED6E3005DE269 /* Inquery.swift in Sources */,
 				2C9526F8277EC52F005DE269 /* PositiveRegistrationCard.swift in Sources */,
 				2C9526EC277EB18F005DE269 /* Home.swift in Sources */,
 				2C95270C277EE4D1005DE269 /* Others.swift in Sources */,
 				2C952709277EE201005DE269 /* Usage.swift in Sources */,
+				2C5701A2278145F000EAAE52 /* UNUserNotificationCenter+Backport.swift in Sources */,
 				2C952710277EF57D005DE269 /* HowToCheckExposure.swift in Sources */,
 				2C952712277EF814005DE269 /* ForPositiveUser.swift in Sources */,
 				2C57019E27807A2F00EAAE52 /* Array+UInt8.swift in Sources */,

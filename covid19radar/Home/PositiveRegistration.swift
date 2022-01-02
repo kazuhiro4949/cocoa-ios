@@ -102,8 +102,8 @@ struct PositiveRegistration: View {
                     do {
                         try await viewModel.send()
                         isPresentedSuccessAlert = true
-                    } catch let e {
-                        print(e)
+                    } catch {
+                        print(error)
                         // TODO: Error handling
                     }
                 }
@@ -202,7 +202,7 @@ class PositiveRegistrationViewModel: ObservableObject {
     
     // TODO: - Refactor
     func send() async throws {
-        let teks = try await CocoaENManager.shared.enManager.getDiagnosisKeys()
+        let teks = try await ExposureManager.shared.getDiagnosisKeys()
         guard let teks = teks else {
             throw AppErorr.general
         }
@@ -212,11 +212,12 @@ class PositiveRegistrationViewModel: ObservableObject {
             throw AppErorr.general
         }
         
-        let timeIntervalSince1970 = Int(startDate.timeIntervalSince1970)
-        
-        // EN interval  https://covid19-static.cdn-apple.com/applications/covid19/current/static/contact-tracing/pdf/ExposureNotification-CryptographySpecificationv1.2.pdf
-        let enInterval = timeIntervalSince1970 / (60 * 10)
+        let enInterval = startDate.enInterval
         let validTeks = teks.filter { enInterval <= $0.rollingStartNumber }
+        guard !validTeks.isEmpty else {
+            throw AppErorr.general
+        }
+        
         let submissionKeys = validTeks.map { key in
             DiagnosisSubmission.Key(
                 keyData: key.keyData.base64EncodedString(),

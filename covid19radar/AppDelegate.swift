@@ -15,11 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        Task {
-            // TODO: - activate time
-            try await CocoaENManager.shared.enManager.activate()
-        }
-        
         return true
     }
 
