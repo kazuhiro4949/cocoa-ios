@@ -16,14 +16,13 @@ class ExposureManager {
     
     private(set) var detectingExposures = false
     private let enManager = ENManager()
-    private static let bgIdentifier = Bundle.main.bundleIdentifier! + ".exposure-notification"
+    private static let bgIdentifier = "jp.go.mhlw.covid19radar.exposure-notification"
 
-    init() {
+    func startBGTaskScheduling() {
         createBGTaskIfNeeded()
         scheduleBGTaskIfNeeded()
     }
-    
-    
+
     /// Needs to call every launching
     func activateENManager() async throws {
         try await enManager.activate()
