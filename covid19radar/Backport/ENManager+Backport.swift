@@ -55,11 +55,12 @@ extension ENManager {
     }
     
     func getExposureWindows(summary: ENExposureDetectionSummary) async throws -> [ENExposureWindow]? {
-        let progress = Box<Progress?>(nil)
+        var progress: Progress?
+        let onCancel = { progress?.cancel() }
         
         return try await withTaskCancellationHandler {
             try await withCheckedThrowingContinuation { continuation in
-                progress.value = getExposureWindows(summary: summary) { windows, error in
+                progress = getExposureWindows(summary: summary) { windows, error in
                     if let error = error {
                         continuation.resume(throwing: error)
                     }
@@ -67,16 +68,17 @@ extension ENManager {
                 }
             }
         } onCancel: {
-            progress.value?.cancel()
+            onCancel()
         }
     }
     
     func getExposureInfo(summary: ENExposureDetectionSummary, userExplanation: String) async throws -> [ENExposureInfo]? {
-        let progress = Box<Progress?>(nil)
+        var progress: Progress?
+        let onCancel = { progress?.cancel() }
         
         return try await withTaskCancellationHandler {
             try await withCheckedThrowingContinuation { continuation in
-                progress.value = getExposureInfo(summary: summary, userExplanation: userExplanation) { info, error in
+                progress = getExposureInfo(summary: summary, userExplanation: userExplanation) { info, error in
                     if let error = error {
                         continuation.resume(throwing: error)
                     }
@@ -84,16 +86,17 @@ extension ENManager {
                 }
             }
         } onCancel: {
-            progress.value?.cancel()
+            onCancel()
         }
     }
     
     func detectExposures(configuration: ENExposureConfiguration, diagnosisKeyURLs: [URL]) async throws -> ENExposureDetectionSummary? {
-        let progress = Box<Progress?>(nil)
+        var progress: Progress?
+        let onCancel = { progress?.cancel() }
         
         return try await withTaskCancellationHandler {
             try await withCheckedThrowingContinuation { continuation in
-                progress.value = detectExposures(configuration: configuration, diagnosisKeyURLs: diagnosisKeyURLs) { sumarry, error in
+                progress = detectExposures(configuration: configuration, diagnosisKeyURLs: diagnosisKeyURLs) { sumarry, error in
                     if let error = error {
                         continuation.resume(throwing: error)
                     }
@@ -102,12 +105,7 @@ extension ENManager {
                 }
             }
         } onCancel: {
-            progress.value?.cancel()
+            onCancel()
         }
     }
-}
-
-class Box<Wrapped> {
-    var value: Wrapped
-    init(_ value: Wrapped) { self.value = value }
 }

@@ -16,4 +16,12 @@ extension URLRequest {
         request.httpBody = jsonBody
         return request
     }
+    
+    static func makeGetConfiguration() -> URLRequest {
+        URLRequest(url: .getConfiguration)
+    }
+    
+    static func makeGetDiagnosisKeyList() -> URLRequest {
+        URLRequest(url: .getDiagnosisKeyList)
+    }
 }

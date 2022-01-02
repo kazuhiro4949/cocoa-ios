@@ -8,37 +8,18 @@
 import Foundation
 import ExposureNotification
 
-struct ExposureConfiguration: Codable {
-    // API V2 Keys
-    let immediateDurationWeight: Double
-    let nearDurationWeight: Double
-    let mediumDurationWeight: Double
-    let otherDurationWeight: Double
-    let infectiousnessForDaysSinceOnsetOfSymptoms: [String: Int]
-    let infectiousnessStandardWeight: Double
-    let infectiousnessHighWeight: Double
-    let reportTypeConfirmedTestWeight: Double
-    let reportTypeConfirmedClinicalDiagnosisWeight: Double
-    let reportTypeSelfReportedWeight: Double
-    let reportTypeRecursiveWeight: Double
-    let reportTypeNoneMap: Int
-    // API V1 Keys
-    let minimumRiskScore: ENRiskScore
-    let attenuationDurationThresholds: [Int]
-    let attenuationLevelValues: [ENRiskLevelValue]
-    let daysSinceLastExposureLevelValues: [ENRiskLevelValue]
-    let durationLevelValues: [ENRiskLevelValue]
-    let transmissionRiskLevelValues: [ENRiskLevelValue]
-    
+struct ExposureConfig: Codable, Equatable {
+    let appleExposureConfigV1: ExposureConfigV1
+    let appleExposureConfigV2: ExposureConfigV2
     
     func convertENConfig() async throws -> ENExposureConfiguration {
         let exposureConfiguration = ENExposureConfiguration()
-        exposureConfiguration.immediateDurationWeight = immediateDurationWeight
-        exposureConfiguration.nearDurationWeight = nearDurationWeight
-        exposureConfiguration.mediumDurationWeight = mediumDurationWeight
-        exposureConfiguration.otherDurationWeight = otherDurationWeight
+        exposureConfiguration.immediateDurationWeight = appleExposureConfigV2.immediateDurationWeight
+        exposureConfiguration.nearDurationWeight = appleExposureConfigV2.nearDurationWeight
+        exposureConfiguration.mediumDurationWeight = appleExposureConfigV2.mediumDurationWeight
+        exposureConfiguration.otherDurationWeight = appleExposureConfigV2.otherDurationWeight
         var infectiousnessForDaysSinceOnsetOfSymptoms = [Int: Int]()
-        for (stringDay, infectiousness) in self.infectiousnessForDaysSinceOnsetOfSymptoms {
+        for (stringDay, infectiousness) in appleExposureConfigV2.infectiousnessForDaysSinceOnsetOfSymptoms {
             if stringDay == "unknown" {
                 if #available(iOS 14.0, *) {
                     infectiousnessForDaysSinceOnsetOfSymptoms[ENDaysSinceOnsetOfSymptomsUnknown] = infectiousness
@@ -52,83 +33,74 @@ struct ExposureConfiguration: Codable {
             }
         }
         exposureConfiguration.infectiousnessForDaysSinceOnsetOfSymptoms = infectiousnessForDaysSinceOnsetOfSymptoms as [NSNumber: NSNumber]
-        exposureConfiguration.infectiousnessStandardWeight = infectiousnessStandardWeight
-        exposureConfiguration.infectiousnessHighWeight = infectiousnessHighWeight
-        exposureConfiguration.reportTypeConfirmedTestWeight = reportTypeConfirmedTestWeight
-        exposureConfiguration.reportTypeConfirmedClinicalDiagnosisWeight = reportTypeConfirmedClinicalDiagnosisWeight
-        exposureConfiguration.reportTypeSelfReportedWeight = reportTypeSelfReportedWeight
-        exposureConfiguration.reportTypeRecursiveWeight = reportTypeRecursiveWeight
-        if let reportTypeNoneMap = ENDiagnosisReportType(rawValue: UInt32(reportTypeNoneMap)) {
+        exposureConfiguration.infectiousnessStandardWeight = appleExposureConfigV2.infectiousnessStandardWeight
+        exposureConfiguration.infectiousnessHighWeight = appleExposureConfigV2.infectiousnessHighWeight
+        exposureConfiguration.reportTypeConfirmedTestWeight = appleExposureConfigV2.reportTypeConfirmedTestWeight
+        exposureConfiguration.reportTypeConfirmedClinicalDiagnosisWeight = appleExposureConfigV2.reportTypeConfirmedClinicalDiagnosisWeight
+        exposureConfiguration.reportTypeSelfReportedWeight = appleExposureConfigV2.reportTypeSelfReportedWeight
+        exposureConfiguration.reportTypeRecursiveWeight = appleExposureConfigV2.reportTypeRecursiveWeight
+        if let reportTypeNoneMap = ENDiagnosisReportType(rawValue: UInt32(appleExposureConfigV2.reportTypeNoneMap)) {
             exposureConfiguration.reportTypeNoneMap = reportTypeNoneMap
         }
         
-        exposureConfiguration.minimumRiskScore = minimumRiskScore
-        exposureConfiguration.attenuationLevelValues = attenuationLevelValues as [NSNumber]
-        exposureConfiguration.daysSinceLastExposureLevelValues = daysSinceLastExposureLevelValues as [NSNumber]
-        exposureConfiguration.durationLevelValues = durationLevelValues as [NSNumber]
-        exposureConfiguration.transmissionRiskLevelValues = transmissionRiskLevelValues as [NSNumber]
-        exposureConfiguration.metadata = ["attenuationDurationThresholds": attenuationDurationThresholds]
+        exposureConfiguration.minimumRiskScore = appleExposureConfigV2.minimumRiskScore // TODO: - v1 or v2 config?
+        
+        exposureConfiguration.attenuationLevelValues = appleExposureConfigV1.attenuationLevelValues as [NSNumber]
+        exposureConfiguration.daysSinceLastExposureLevelValues = appleExposureConfigV1.daysSinceLastExposureLevelValues as [NSNumber]
+        exposureConfiguration.durationLevelValues = appleExposureConfigV1.durationLevelValues as [NSNumber]
+        exposureConfiguration.transmissionRiskLevelValues = appleExposureConfigV1.transmissionRiskLevelValues as [NSNumber]
+//        exposureConfiguration.metadata = ["attenuationDurationThresholds": appleExposureConfigV1.attenuationDurationThresholds] // TODO: - needs this prop?
         return exposureConfiguration
     }
 }
 
-extension ExposureConfiguration {
-    static var mock: ExposureConfiguration {
-        let str = """
-        {
-        "immediateDurationWeight":100,
-        "nearDurationWeight":100,
-        "mediumDurationWeight":100,
-        "otherDurationWeight":100,
-        "infectiousnessForDaysSinceOnsetOfSymptoms":{
-            "unknown":1,
-            "-14":1,
-            "-13":1,
-            "-12":1,
-            "-11":1,
-            "-10":1,
-            "-9":1,
-            "-8":1,
-            "-7":1,
-            "-6":1,
-            "-5":1,
-            "-4":1,
-            "-3":1,
-            "-2":1,
-            "-1":1,
-            "0":1,
-            "1":1,
-            "2":1,
-            "3":1,
-            "4":1,
-            "5":1,
-            "6":1,
-            "7":1,
-            "8":1,
-            "9":1,
-            "10":1,
-            "11":1,
-            "12":1,
-            "13":1,
-            "14":1
-        },
-        "infectiousnessStandardWeight":100,
-        "infectiousnessHighWeight":100,
-        "reportTypeConfirmedTestWeight":100,
-        "reportTypeConfirmedClinicalDiagnosisWeight":100,
-        "reportTypeSelfReportedWeight":100,
-        "reportTypeRecursiveWeight":100,
-        "reportTypeNoneMap":1,
-        "minimumRiskScore":0,
-        "attenuationDurationThresholds":[50, 70],
-        "attenuationLevelValues":[1, 2, 3, 4, 5, 6, 7, 8],
-        "daysSinceLastExposureLevelValues":[1, 2, 3, 4, 5, 6, 7, 8],
-        "durationLevelValues":[1, 2, 3, 4, 5, 6, 7, 8],
-        "transmissionRiskLevelValues":[1, 2, 3, 4, 5, 6, 7, 8]
-        }
-        """.data(using: .utf8)!
-        
-        return try JSONDecoder()
-            .decode(ExposureConfiguration.self, from: str)
+struct ExposureConfigV1: Codable, Equatable {
+    let attenuationLevelValues: [ENRiskLevelValue]
+    let daysSinceLastExposureLevelValues: [ENRiskLevelValue]
+    let durationLevelValues: [ENRiskLevelValue]
+    let transmissionRiskLevelValues: [ENRiskLevelValue]
+    let minimumRiskScore: ENRiskScore
+    let minimumRiskScoreFullRange: Double
+}
+
+struct ExposureConfigV2: Codable, Equatable {
+    let infectiousnessWhenDaysSinceOnsetMissing: Int
+    let Attenuation_duration_thresholds: [Int]
+    let durationLevelValues: Double
+    let transmissionRiskLevelValues: [Int]
+    let minimumRiskScore: ENRiskScore
+    let minimumRiskScoreFullRange: Double
+    let immediateDurationWeight: Double
+    let nearDurationWeight: Double
+    let mediumDurationWeight: Double
+    let otherDurationWeight: Double
+    let DaysSinceLastExposureThreshold: Int // TODO: - wrong format
+    let infectiousnessForDaysSinceOnsetOfSymptoms: [String: Int]
+    let infectiousnessHighWeight: Double
+    let infectiousnessStandardWeight: Double
+    let reportTypeConfirmedClinicalDiagnosisWeight: Double
+    let reportTypeConfirmedTestWeight: Double
+    let reportTypeRecursiveWeight: Double
+    let reportTypeSelfReportedWeight: Double
+    let reportTypeNoneMap: Int
+}
+
+
+struct DiagnosisKeyEntry: Decodable {
+    let region: Int
+    
+    @FailableDecodable
+    var url: URL?
+    
+    let created: Int64
+}
+
+@propertyWrapper
+struct FailableDecodable<Wrapped: Decodable>: Decodable {
+    var wrappedValue: Wrapped?
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        wrappedValue = try? container.decode(Wrapped.self)
     }
 }
