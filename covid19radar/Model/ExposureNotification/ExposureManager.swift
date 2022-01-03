@@ -11,12 +11,41 @@ import BackgroundTasks
 import UserNotifications
 import ZIPFoundation
 
+enum HelthCheck {
+    case active
+    case unauthorized
+    case needsConfirm
+}
+
 class ExposureManager {
+    static let exposureNotificationStatusChanged = Notification.Name.init(rawValue: "ExposureManager.exposureNotificationStatusChanged")
+    
     static let shared = ExposureManager()
     
     private(set) var detectingExposures = false
     private let enManager = ENManager()
     private static let bgIdentifier = "jp.go.mhlw.covid19radar.exposure-notification"
+    
+    private var observers = [NSObjectProtocol]()
+    
+    init() {
+        observers.append(enManager.observe(\.exposureNotificationStatus) { manager, changed in
+            if changed.oldValue != changed.newValue {
+                NotificationCenter.default.post(name: ExposureManager.exposureNotificationStatusChanged, object: self)
+            }
+        })
+    }
+    
+    var helthCheck: HelthCheck {
+        switch enManager.exposureNotificationStatus {
+        case .active:
+            return .active
+        case .unauthorized:
+            return .unauthorized
+        default:
+            return .needsConfirm
+        }
+    }
 
     func startBGTaskScheduling() {
         createBGTaskIfNeeded()

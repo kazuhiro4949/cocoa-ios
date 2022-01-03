@@ -61,6 +61,10 @@
 		2C96250C2782E720003BFCAB /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C96250B2782E720003BFCAB /* LoadingState.swift */; };
 		2C96549827830E17007A08FF /* Environment.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96549727830E17007A08FF /* Environment.plist */; };
 		2C96549A27830F47007A08FF /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C96549927830F47007A08FF /* Config.swift */; };
+		2C9654A127832106007A08FF /* HelthCheckActive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9654A027832106007A08FF /* HelthCheckActive.swift */; };
+		2C9654A327832862007A08FF /* HelthCheckUnauthorized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9654A227832862007A08FF /* HelthCheckUnauthorized.swift */; };
+		2C9654A527832B6E007A08FF /* HelthCheckTroubleShooting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9654A427832B6E007A08FF /* HelthCheckTroubleShooting.swift */; };
+		2C9654A727832DD2007A08FF /* HelthCheckNeedsConfirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9654A627832DD2007A08FF /* HelthCheckNeedsConfirm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +143,10 @@
 		2C96250B2782E720003BFCAB /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		2C96549727830E17007A08FF /* Environment.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Environment.plist; sourceTree = "<group>"; };
 		2C96549927830F47007A08FF /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		2C9654A027832106007A08FF /* HelthCheckActive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelthCheckActive.swift; sourceTree = "<group>"; };
+		2C9654A227832862007A08FF /* HelthCheckUnauthorized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelthCheckUnauthorized.swift; sourceTree = "<group>"; };
+		2C9654A427832B6E007A08FF /* HelthCheckTroubleShooting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelthCheckTroubleShooting.swift; sourceTree = "<group>"; };
+		2C9654A627832DD2007A08FF /* HelthCheckNeedsConfirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelthCheckNeedsConfirm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,8 +326,8 @@
 		2C9526FF277ED27D005DE269 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				2C96549D278320E2007A08FF /* HelthCheckBoard */,
 				2C9526EB277EB18F005DE269 /* Home.swift */,
-				2C9526F3277EC230005DE269 /* HelthCheckBoard.swift */,
 				2C9526F5277EC26C005DE269 /* ExposureCard.swift */,
 				2C9526F7277EC52F005DE269 /* PositiveRegistrationCard.swift */,
 				2C952715277EFE11005DE269 /* PositiveRegistration.swift */,
@@ -365,6 +373,18 @@
 				2C95270B277EE4D1005DE269 /* Others.swift */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		2C96549D278320E2007A08FF /* HelthCheckBoard */ = {
+			isa = PBXGroup;
+			children = (
+				2C9526F3277EC230005DE269 /* HelthCheckBoard.swift */,
+				2C9654A027832106007A08FF /* HelthCheckActive.swift */,
+				2C9654A227832862007A08FF /* HelthCheckUnauthorized.swift */,
+				2C9654A627832DD2007A08FF /* HelthCheckNeedsConfirm.swift */,
+				2C9654A427832B6E007A08FF /* HelthCheckTroubleShooting.swift */,
+			);
+			path = HelthCheckBoard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -508,6 +528,7 @@
 				2C96250A2782E378003BFCAB /* SecondaryButton.swift in Sources */,
 				2C5701882780593F00EAAE52 /* ExposureManager.swift in Sources */,
 				2C5701BA278276B300EAAE52 /* TutorialThanks.swift in Sources */,
+				2C9654A527832B6E007A08FF /* HelthCheckTroubleShooting.swift in Sources */,
 				2C570180278046F900EAAE52 /* RiskLevel.swift in Sources */,
 				2C5701A427814BB000EAAE52 /* Date+Spec.swift in Sources */,
 				2C5701822780470500EAAE52 /* ReportType.swift in Sources */,
@@ -521,6 +542,7 @@
 				2C5701952780642D00EAAE52 /* URLRequest+Spec.swift in Sources */,
 				2C5701862780538400EAAE52 /* DateFormatter+Spec.swift in Sources */,
 				2C9526BC277EB16D005DE269 /* AppDelegate.swift in Sources */,
+				2C9654A127832106007A08FF /* HelthCheckActive.swift in Sources */,
 				2C57018B27805AA800EAAE52 /* ENManager+Backport.swift in Sources */,
 				2C5701B82782767000EAAE52 /* TutorialEnableEN.swift in Sources */,
 				2C9526F4277EC230005DE269 /* HelthCheckBoard.swift in Sources */,
@@ -538,11 +560,13 @@
 				2C952709277EE201005DE269 /* Usage.swift in Sources */,
 				2C5701A2278145F000EAAE52 /* UNUserNotificationCenter+Backport.swift in Sources */,
 				2C952710277EF57D005DE269 /* HowToCheckExposure.swift in Sources */,
+				2C9654A727832DD2007A08FF /* HelthCheckNeedsConfirm.swift in Sources */,
 				2C952712277EF814005DE269 /* ForPositiveUser.swift in Sources */,
 				2C5701B0278275FA00EAAE52 /* TutorialAboutProvicy.swift in Sources */,
 				2C57019E27807A2F00EAAE52 /* Array+UInt8.swift in Sources */,
 				2C5701B62782763E00EAAE52 /* TutorialPrivacyPolicy.swift in Sources */,
 				2C952714277EFA07005DE269 /* HowToReset.swift in Sources */,
+				2C9654A327832862007A08FF /* HelthCheckUnauthorized.swift in Sources */,
 				2C9526BE277EB16D005DE269 /* SceneDelegate.swift in Sources */,
 				2C5701B42782763200EAAE52 /* TutorialTerms.swift in Sources */,
 				2C57017C278046D900EAAE52 /* DiagnosisSubmission.swift in Sources */,
