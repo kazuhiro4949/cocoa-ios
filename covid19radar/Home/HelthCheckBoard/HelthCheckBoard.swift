@@ -12,6 +12,8 @@ struct HelthCheckBoard: View {
     @Binding var value: Bool
     @ObservedObject private var viewModel = HelthCheckBoardViewModel()
     
+    @State private var isPresentAboutLastDate = false
+    
     var body: some View {
         VStack(spacing: 32) {
             if case .active = viewModel.status {
@@ -27,6 +29,7 @@ struct HelthCheckBoard: View {
             VStack(spacing: 8) {
                 HStack {
                     Button {
+                        isPresentAboutLastDate = true
                     } label: {
                         HStack(spacing: 4) {
                             Text("接触有無の最終確認日時")
@@ -35,6 +38,12 @@ struct HelthCheckBoard: View {
                         }
                         .font(.system(.caption))
                         .padding(.leading, 16)
+                    }
+                    .alert(isPresented: $isPresentAboutLastDate) {
+                        Alert(
+                            title: Text("確認"),
+                            message: Text("ホーム画面に「接触有無を確認できません」と表示された場合は、以下をお試しください。"),
+                            dismissButton: .default(Text("OK")))
                     }
                 }
                 Text("取得中")
