@@ -25,8 +25,9 @@ struct TutorialTerms: View {
                 Task {
                     do {
                         try await viewModel.register()
-                        next()
                         UserDefaults.standard.set(Date(), forKey: "TermsLastUpdated")
+                        UserDefaults.standard.set(Date(), forKey: "StartDate")
+                        next()
                     } catch {
                         isFaildToConfirmed = true
                     }

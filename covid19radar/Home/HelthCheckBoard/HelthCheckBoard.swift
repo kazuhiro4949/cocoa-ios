@@ -56,6 +56,7 @@ struct HelthCheckBoard: View {
 
 class HelthCheckBoardViewModel: ObservableObject {
     @Published var status: HelthCheck = .unauthorized
+    @Published var progressString: String = "0"
     
     private var observers = [NSObjectProtocol]()
     
@@ -66,7 +67,15 @@ class HelthCheckBoardViewModel: ObservableObject {
             queue: .main) { [weak self] notification in
                 self?.status = ExposureManager.shared.helthCheck
             })
-        
+    }
+    
+    func updateProgress() {
+        if let startDate = UserDefaults.standard.object(forKey: "StartDate") as? Date,
+           let day = Calendar.current.dateComponents([.day], from: startDate, to: Date()).day {
+            progressString = "\(day)"
+        } else {
+            progressString = "0"
+        }
     }
 }
 
