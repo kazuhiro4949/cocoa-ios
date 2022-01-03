@@ -23,9 +23,9 @@ extension URL {
 extension String {
     static let mhlwDomain = "https://www.mhlw.go.jp"
     
-    static let apiDomain = "" //TODO: -
+    static let apiDomain = Config.dev.apiUrlBase
     
-    static let cdnDomain = "" //TODO: -
+    static let cdnDomain = Config.dev.cdnUrlBase
     
     static let githubIoDomain = "https://cocoa-mhlw.github.io/"
 }

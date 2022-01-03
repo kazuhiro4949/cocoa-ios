@@ -12,8 +12,8 @@ extension URLSession {
         let config = URLSessionConfiguration.default
         config.httpAdditionalHeaders = [
             "Content-Type": "application/json",
-            "x-functions-key": "",
-            "x-api-key": ""
+            "x-functions-key": Config.dev.apiSecret,
+            "x-api-key": Config.dev.apiKey
         ]
         return URLSession(configuration: config)
     }()
@@ -22,7 +22,7 @@ extension URLSession {
         let config = URLSessionConfiguration.default
         config.httpAdditionalHeaders = [
             "Content-Type": "application/json; charset=utf-8",
-            "x-functions-key": "",
+            "x-functions-key": Config.dev.apiSecret,
             "Accept": "*/*",
         ]
         return URLSession(configuration: config)
