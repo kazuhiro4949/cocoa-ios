@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct Config: Codable {
+struct Environment: Codable {
     let apiKey: String
     let apiSecret: String
     let apiUrlBase: String
     let cdnUrlBase: String
 }
 
-extension Config {
-    static let dev: Config = {
-        let url = Bundle.main.url(forResource: "DevEnvironment", withExtension: "plist")!
+extension Environment {
+    static let plist: Environment = {
+        let url = Bundle.main.url(forResource: "Environment", withExtension: "plist")!
         let decoder = PropertyListDecoder()
         return try! decoder.decode(Config.self, from: Data(contentsOf: url))
     }()

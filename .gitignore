@@ -27,4 +27,4 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
-covid19radar/DevEnvironment.plist
+covid19radar/Environment.plist

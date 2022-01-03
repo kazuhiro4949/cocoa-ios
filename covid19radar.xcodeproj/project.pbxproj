@@ -59,7 +59,7 @@
 		2C9625082782DAE2003BFCAB /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9625072782DAE2003BFCAB /* WebView.swift */; };
 		2C96250A2782E378003BFCAB /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9625092782E378003BFCAB /* SecondaryButton.swift */; };
 		2C96250C2782E720003BFCAB /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C96250B2782E720003BFCAB /* LoadingState.swift */; };
-		2C96549827830E17007A08FF /* DevEnvironment.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96549727830E17007A08FF /* DevEnvironment.plist */; };
+		2C96549827830E17007A08FF /* Environment.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C96549727830E17007A08FF /* Environment.plist */; };
 		2C96549A27830F47007A08FF /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C96549927830F47007A08FF /* Config.swift */; };
 /* End PBXBuildFile section */
 
@@ -137,7 +137,7 @@
 		2C9625072782DAE2003BFCAB /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		2C9625092782E378003BFCAB /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		2C96250B2782E720003BFCAB /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
-		2C96549727830E17007A08FF /* DevEnvironment.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DevEnvironment.plist; sourceTree = "<group>"; };
+		2C96549727830E17007A08FF /* Environment.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Environment.plist; sourceTree = "<group>"; };
 		2C96549927830F47007A08FF /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -293,7 +293,7 @@
 				2C9526C4277EB16F005DE269 /* Assets.xcassets */,
 				2C9526C6277EB16F005DE269 /* LaunchScreen.storyboard */,
 				2C9526C9277EB16F005DE269 /* Info.plist */,
-				2C96549727830E17007A08FF /* DevEnvironment.plist */,
+				2C96549727830E17007A08FF /* Environment.plist */,
 			);
 			path = covid19radar;
 			sourceTree = "<group>";
@@ -477,7 +477,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C96549827830E17007A08FF /* DevEnvironment.plist in Resources */,
+				2C96549827830E17007A08FF /* Environment.plist in Resources */,
 				2C9526C8277EB16F005DE269 /* LaunchScreen.storyboard in Resources */,
 				2C9526C5277EB16F005DE269 /* Assets.xcassets in Resources */,
 				2C9526C3277EB16D005DE269 /* Main.storyboard in Resources */,
