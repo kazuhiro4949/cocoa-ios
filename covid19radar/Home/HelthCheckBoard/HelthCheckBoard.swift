@@ -56,7 +56,7 @@ struct HelthCheckBoard: View {
 
 class HelthCheckBoardViewModel: ObservableObject {
     @Published var status: HelthCheck = .unauthorized
-    @Published var progressString: String = "0"
+    @Published var lastProcessLabel: String = "未確認"
     
     private var observers = [NSObjectProtocol]()
     
@@ -69,12 +69,12 @@ class HelthCheckBoardViewModel: ObservableObject {
             })
     }
     
-    func updateProgress() {
-        if let startDate = UserDefaults.standard.object(forKey: "StartDate") as? Date,
-           let day = Calendar.current.dateComponents([.day], from: startDate, to: Date()).day {
-            progressString = "\(day)"
+    func updateLastProcess() {
+        if let lastProcess = UserDefaults.standard.object(forKey: "LastProcessTekTimestamp") as? Date {
+            let lastProcessString = DateFormatter.helthcheckLabel.string(from: lastProcess)
+            lastProcessLabel = lastProcessString
         } else {
-            progressString = "0"
+            lastProcessLabel = "取得中"
         }
     }
 }
