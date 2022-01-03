@@ -2,12 +2,21 @@
   "object": {
     "pins": [
       {
+        "package": "SwiftUIReplicator",
+        "repositoryURL": "https://github.com/kazuhiro4949/SwiftUIReplicator.git",
+        "state": {
+          "branch": null,
+          "revision": "b27f5897de30e790374edfaaba872bea35ea9003",
+          "version": "1.0.2"
+        }
+      },
+      {
         "package": "ZIPFoundation",
         "repositoryURL": "https://github.com/weichsel/ZIPFoundation.git",
         "state": {
           "branch": null,
-          "revision": "7254c74b49cec2cb81520523ba993c671f71b066",
-          "version": "0.9.14"
+          "revision": "edbeaa39b426e54702194b0a601342322f01e400",
+          "version": "0.9.9"
         }
       }
     ]

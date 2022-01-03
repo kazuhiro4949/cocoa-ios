@@ -65,6 +65,8 @@
 		2C9654A327832862007A08FF /* HelthCheckUnauthorized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9654A227832862007A08FF /* HelthCheckUnauthorized.swift */; };
 		2C9654A527832B6E007A08FF /* HelthCheckTroubleShooting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9654A427832B6E007A08FF /* HelthCheckTroubleShooting.swift */; };
 		2C9654A727832DD2007A08FF /* HelthCheckNeedsConfirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9654A627832DD2007A08FF /* HelthCheckNeedsConfirm.swift */; };
+		2C9654AA27834597007A08FF /* SwiftUIReplicator in Frameworks */ = {isa = PBXBuildFile; productRef = 2C9654A927834597007A08FF /* SwiftUIReplicator */; };
+		2C9654AC278345DC007A08FF /* OverlayLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9654AB278345DC007A08FF /* OverlayLoading.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +149,7 @@
 		2C9654A227832862007A08FF /* HelthCheckUnauthorized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelthCheckUnauthorized.swift; sourceTree = "<group>"; };
 		2C9654A427832B6E007A08FF /* HelthCheckTroubleShooting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelthCheckTroubleShooting.swift; sourceTree = "<group>"; };
 		2C9654A627832DD2007A08FF /* HelthCheckNeedsConfirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelthCheckNeedsConfirm.swift; sourceTree = "<group>"; };
+		2C9654AB278345DC007A08FF /* OverlayLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayLoading.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C5701AB2781CA8B00EAAE52 /* ZIPFoundation in Frameworks */,
+				2C9654AA27834597007A08FF /* SwiftUIReplicator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +351,7 @@
 		2C952706277EE1BA005DE269 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				2C9654AB278345DC007A08FF /* OverlayLoading.swift */,
 				2C9526ED277EBBEB005DE269 /* DefaultButton.swift */,
 				2C9625092782E378003BFCAB /* SecondaryButton.swift */,
 				2C9625072782DAE2003BFCAB /* WebView.swift */,
@@ -405,6 +410,7 @@
 			name = covid19radar;
 			packageProductDependencies = (
 				2C5701AA2781CA8B00EAAE52 /* ZIPFoundation */,
+				2C9654A927834597007A08FF /* SwiftUIReplicator */,
 			);
 			productName = covid19radar;
 			productReference = 2C9526B8277EB16D005DE269 /* covid19radar.app */;
@@ -480,6 +486,7 @@
 			mainGroup = 2C9526AF277EB16D005DE269;
 			packageReferences = (
 				2C5701A92781CA8B00EAAE52 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+				2C9654A827834597007A08FF /* XCRemoteSwiftPackageReference "SwiftUIReplicator" */,
 			);
 			productRefGroup = 2C9526B9277EB16D005DE269 /* Products */;
 			projectDirPath = "";
@@ -535,6 +542,7 @@
 				2C57017A2780421F00EAAE52 /* URLSession+Spec.swift in Sources */,
 				2C9526EE277EBBEB005DE269 /* DefaultButton.swift in Sources */,
 				2C9526C0277EB16D005DE269 /* ViewController.swift in Sources */,
+				2C9654AC278345DC007A08FF /* OverlayLoading.swift in Sources */,
 				2C9526FE277ECF43005DE269 /* TabBarController.swift in Sources */,
 				2C5701A62781518300EAAE52 /* LocalStore.swift in Sources */,
 				2C9526F6277EC26C005DE269 /* ExposureCard.swift in Sources */,
@@ -928,8 +936,16 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.9;
+				kind = exactVersion;
+				version = 0.9.9;
+			};
+		};
+		2C9654A827834597007A08FF /* XCRemoteSwiftPackageReference "SwiftUIReplicator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kazuhiro4949/SwiftUIReplicator.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -939,6 +955,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2C5701A92781CA8B00EAAE52 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
 			productName = ZIPFoundation;
+		};
+		2C9654A927834597007A08FF /* SwiftUIReplicator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C9654A827834597007A08FF /* XCRemoteSwiftPackageReference "SwiftUIReplicator" */;
+			productName = SwiftUIReplicator;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

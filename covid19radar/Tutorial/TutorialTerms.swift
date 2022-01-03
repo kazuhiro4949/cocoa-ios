@@ -37,7 +37,7 @@ struct TutorialTerms: View {
             .padding()
         }
         .overlay(
-            viewModel.registrationState == .loading ? AnyView(Rectangle().fill(.white).opacity(0.5)) : AnyView(EmptyView())
+            OverlayLoading(isHidden: viewModel.registrationState != .loading)
         )
         .alert(isPresented: $isFaildToConfirmed) {
             Alert(
