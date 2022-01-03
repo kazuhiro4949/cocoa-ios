@@ -27,6 +27,11 @@ class MainViewController: UIViewController {
                 case .usage:
                     self?.rootTabBarController.selectedIndex = 1
                 }
+                
+                Task {
+                    try await ExposureManager.shared.activateENManager()
+                    try await ExposureManager.shared.detectExposures()
+                }
             })
             
             tutorialViewController.view.frame = view.bounds

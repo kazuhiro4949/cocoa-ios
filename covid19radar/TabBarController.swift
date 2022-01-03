@@ -47,7 +47,12 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        setupTabBarIfNeeded()
+        setViewControllers()
+    }
+    
+    private func setupTabBarIfNeeded() {
         if #available(iOS 15.0, *) {
             let tabBarAppearance = UITabBarAppearance()
             tabBarAppearance.configureWithDefaultBackground()
@@ -56,6 +61,9 @@ class TabBarController: UITabBarController {
             tabBar.scrollEdgeAppearance = tabBarAppearance
         }
         
+    }
+    
+    private func setViewControllers() {
         setViewControllers([
             homeViewController,
             usageViewController,
