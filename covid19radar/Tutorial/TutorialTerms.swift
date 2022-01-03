@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct TutorialTerms: View {
+    var next: () -> Void
     @ObservedObject private var viewModel = TutorialTermsViewModel()
-    @Binding var step: TutorialStep
     @State private var isFaildToConfirmed = false
     
     var body: some View {
@@ -25,7 +25,7 @@ struct TutorialTerms: View {
                 Task {
                     do {
                         try await viewModel.register()
-                        step = .privacyPolicy
+                        next()
                         UserDefaults.standard.set(Date(), forKey: "TermsLastUpdated")
                     } catch {
                         isFaildToConfirmed = true
@@ -64,6 +64,6 @@ class TutorialTermsViewModel: ObservableObject {
 
 struct TutorialTerms_Previews: PreviewProvider {
     static var previews: some View {
-        TutorialTerms(step: .constant(.terms))
+        TutorialTerms {}
     }
 }

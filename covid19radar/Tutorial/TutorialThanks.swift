@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TutorialThanks: View {
-    @Binding var step: TutorialStep
+    var next: (TutorialStep.FinishedDestination) -> Void
     
     var body: some View {
         VStack {
@@ -29,11 +29,11 @@ struct TutorialThanks: View {
             }
             VStack(spacing: 16) {
                 DefaultButton(title: "ホーム画面へ") {
-                    step = .finished(.home)
+                    next(.home)
                 }
                 .padding([.leading, .trailing, .top], 16)
                 SecondaryButton(title: "使い方を学ぶ") {
-                    step = .finished(.usage)
+                    next(.usage)
                 }
                 .padding([.leading, .trailing, .bottom], 16)
             }
@@ -43,6 +43,6 @@ struct TutorialThanks: View {
 
 struct TutorialThanks_Previews: PreviewProvider {
     static var previews: some View {
-        TutorialThanks(step: .constant(.thanks))
+        TutorialThanks { _ in }
     }
 }

@@ -31,19 +31,33 @@ struct Tutorial: View {
     var body: some View {
         Group {
             if case .howToUse = viewModel.step {
-                TutorialHowToUse(step: $viewModel.step)
+                TutorialHowToUse {
+                    viewModel.step = .aboutPrivacy
+                }
             } else if case .aboutPrivacy = viewModel.step {
-                TutorialAboutProvicy(step: $viewModel.step)
+                TutorialAboutProvicy {
+                    viewModel.step = .terms
+                }
             } else if case .terms = viewModel.step {
-                TutorialTerms(step: $viewModel.step)
+                TutorialTerms {
+                    viewModel.step = .privacyPolicy
+                }
             } else if case .privacyPolicy = viewModel.step {
-                TutorialPrivacyPolicy(step: $viewModel.step)
+                TutorialPrivacyPolicy {
+                    viewModel.step = .enableEN
+                }
+                
             } else if case .enableEN = viewModel.step {
-                TutorialEnableEN(step: $viewModel.step)
+                TutorialEnableEN {
+                    viewModel.step = .thanks
+                }
             } else {
-                TutorialThanks(step: $viewModel.step)
+                TutorialThanks { (destination) in
+                    viewModel.step = .finished(destination)
+                }
             }
         }
+        .animation(.default)
         .onAppear {
             viewModel.setDismissHandler(dismiss)
         }

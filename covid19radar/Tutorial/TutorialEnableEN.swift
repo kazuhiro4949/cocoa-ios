@@ -10,7 +10,7 @@ import SwiftUI
 struct TutorialEnableEN: View {
     @ObservedObject private var viewModel = TutorialEnableENViewModel()
     @State private var isFailedToStartEN = false
-    @Binding var step: TutorialStep
+    var next: () -> Void
     
     var body: some View {
         VStack {
@@ -34,7 +34,7 @@ struct TutorialEnableEN: View {
                     Task {
                         do {
                             try await viewModel.startEN()
-                            step = .thanks
+                            next()
                         } catch {
                             isFailedToStartEN = true
                         }
@@ -46,12 +46,12 @@ struct TutorialEnableEN: View {
                         title: Text("エラー"),
                         message: Text("失敗しました。OS設定からオンにしてください。"),
                         dismissButton: .default(Text("OK"), action: {
-                            step = .thanks
+                            next()
                         })
                     )
                 }
                 SecondaryButton(title: "あとで設定する") {
-                    step = .thanks
+                    next()
                 }.padding([.leading, .trailing, .bottom], 16)
             }
         }
@@ -76,6 +76,6 @@ class TutorialEnableENViewModel: ObservableObject {
 
 struct TutorialEnableEN_Previews: PreviewProvider {
     static var previews: some View {
-        TutorialEnableEN(step: .constant(.enableEN))
+        TutorialEnableEN {}
     }
 }

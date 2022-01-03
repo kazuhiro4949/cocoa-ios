@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TutorialAboutProvicy: View {
-    @Binding var step: TutorialStep
+    var next: () -> Void
     
     var body: some View {
         VStack {
@@ -27,7 +27,7 @@ struct TutorialAboutProvicy: View {
                 }.padding()
             }
             DefaultButton(title: "利用規約へ") {
-                step = .terms
+                next()
             }.padding()
         }
     }
@@ -35,6 +35,6 @@ struct TutorialAboutProvicy: View {
 
 struct TutorialAboutProvicy_Previews: PreviewProvider {
     static var previews: some View {
-        TutorialAboutProvicy(step: .constant(.aboutPrivacy))
+        TutorialAboutProvicy {}
     }
 }

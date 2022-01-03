@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TutorialPrivacyPolicy: View {
-    @Binding var step: TutorialStep
+    var next: () -> Void
     
     var body: some View {
         VStack {
@@ -20,8 +20,8 @@ struct TutorialPrivacyPolicy: View {
             WebView(url: .constant(.privacyPolicyWebPage))
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             DefaultButton(title: "同意する") {
-                step = .enableEN
                 UserDefaults.standard.set(Date(), forKey: "PrivacyPolicyLastUpdated")
+                next()
             }.padding()
         }
     }
@@ -29,6 +29,6 @@ struct TutorialPrivacyPolicy: View {
 
 struct TutorialPrivacyPolicy_Previews: PreviewProvider {
     static var previews: some View {
-        TutorialPrivacyPolicy(step: .constant(.aboutPrivacy))
+        TutorialPrivacyPolicy {}
     }
 }
