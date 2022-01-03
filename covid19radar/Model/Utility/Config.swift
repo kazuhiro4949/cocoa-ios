@@ -18,6 +18,6 @@ extension Environment {
     static let plist: Environment = {
         let url = Bundle.main.url(forResource: "Environment", withExtension: "plist")!
         let decoder = PropertyListDecoder()
-        return try! decoder.decode(Config.self, from: Data(contentsOf: url))
+        return try! decoder.decode(Environment.self, from: Data(contentsOf: url))
     }()
 }
