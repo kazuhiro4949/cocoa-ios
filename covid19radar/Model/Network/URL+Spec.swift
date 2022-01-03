@@ -8,6 +8,11 @@
 import Foundation
 
 extension URL {
+    static var termsWebPage = URL(string: .mhlwDomain + "/cocoa/kiyaku_japanese.html")!
+    static var privacyPolicyWebPage = URL(string: .mhlwDomain + "/cocoa/privacypolicy_japanese.html")!
+    
+    static var userRegistration = URL(string: .apiDomain + "/api/register")!
+    
     static var diagnosisSubmission = URL(string: .apiDomain + "/api/v3/diagnosis")!
     
     static var getConfiguration = URL(string: .githubIoDomain + "/cocoa/exposure_configuration/Cappuccino/test/configuration_slot1.json")!
@@ -16,9 +21,11 @@ extension URL {
 }
 
 extension String {
-    static var apiDomain = "" //TODO: -
+    static let mhlwDomain = "https://www.mhlw.go.jp"
     
-    static var cdnDomain = "" //TODO: -
+    static let apiDomain = "" //TODO: -
     
-    static var githubIoDomain = "https://cocoa-mhlw.github.io/"
+    static let cdnDomain = "" //TODO: -
+    
+    static let githubIoDomain = "https://cocoa-mhlw.github.io/"
 }

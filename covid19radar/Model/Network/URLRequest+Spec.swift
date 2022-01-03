@@ -17,6 +17,12 @@ extension URLRequest {
         return request
     }
     
+    static func makePostUserRegistration() -> URLRequest {
+        var request = URLRequest(url: .getConfiguration)
+        request.httpMethod = "POST"
+        return request
+    }
+    
     static func makeGetConfiguration() -> URLRequest {
         URLRequest(url: .getConfiguration)
     }

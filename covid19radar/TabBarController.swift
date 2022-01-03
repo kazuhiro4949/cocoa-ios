@@ -62,7 +62,6 @@ class TabBarController: UITabBarController {
             inqueryViewController,
             othersViewController], animated: false)
     }
-    
 
     /*
     // MARK: - Navigation

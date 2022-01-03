@@ -1,13 +1,13 @@
 //
-//  DefaultButton.swift
+//  SecondaryButton.swift
 //  covid19radar
 //
-//  Created by kazuhiro2 on 2021/12/31.
+//  Created by kazuhiro2 on 2022/01/03.
 //
 
 import SwiftUI
 
-struct DefaultButton: View {
+struct SecondaryButton: View {
     var systemImageName: String?
     let title: String
     let action: () -> Void
@@ -24,20 +24,19 @@ struct DefaultButton: View {
                     .font(.system(size: 16))
                     .bold()
             }
-            .foregroundColor(.white)
+            .foregroundColor(.gray)
         }
         .frame(maxWidth: .infinity)
         .frame(height: 44)
         .background(
             RoundedRectangle(cornerRadius: 8)
-                .fill(.blue)
+                .stroke(.gray, lineWidth: 1)
         )
     }
 }
 
-struct DefaultButton_Previews: PreviewProvider {
+struct SecondaryButton_Previews: PreviewProvider {
     static var previews: some View {
-        DefaultButton(systemImageName: "person.2.fill", title: "陽性者との接触結果") {}
-        
+        SecondaryButton(systemImageName: "person.2.fill", title: "陽性者との接触結果") {}
     }
 }
