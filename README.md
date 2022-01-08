@@ -2,7 +2,9 @@
 
 clone app base on [cocoa-mhlw/cocoa](https://github.com/cocoa-mhlw/cocoa)
 
-# Feature
+# progress
+
+## feature
 
 1. [x] rough design
 2. [x] register temporary diagnosis keys
@@ -19,3 +21,17 @@ clone app base on [cocoa-mhlw/cocoa](https://github.com/cocoa-mhlw/cocoa)
 13. [ ] inquery
 14. [ ] logger
 15. [ ] fix design
+
+## env
+1. [ ] CI
+2. [ ] Configuration
+3. [ ] UnitTest
+4. [ ] CD
+5. [ ] Swift Package Manager
+6. [ ] Refactoring
+
+# cocoa-ios
+
+clone app base on [cocoa-mhlw/cocoa](https://github.com/cocoa-mhlw/cocoa)
+
+
