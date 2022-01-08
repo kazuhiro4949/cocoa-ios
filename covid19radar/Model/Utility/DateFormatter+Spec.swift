@@ -17,11 +17,21 @@ extension DateFormatter {
         return formatter
     }()
     
-    /// e.g. 2022-01-01 00:00:00
+    /// e.g. 2022-01-01 00:00
     static let helthcheckLabel: DateFormatter = {
         let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle =  .short
         formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return formatter
+    }()
+    
+    /// e.g. 2022-01-01
+    static let dateLabel: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle =  .none
+        formatter.locale = Locale(identifier: "en_US_POSIX")
         return formatter
     }()
 }

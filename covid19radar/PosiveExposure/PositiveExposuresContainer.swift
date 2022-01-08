@@ -19,10 +19,9 @@ struct PositiveExposuresContainer: View {
             }
         }
         .onAppear {
-            Task {
-              try await viewModel.fetch()
-            }
-            
+            do {
+              try viewModel.fetch()
+            } catch {}
         }
         .navigationBarTitle("過去14日間の接触")
     }
@@ -31,13 +30,24 @@ struct PositiveExposuresContainer: View {
 class PositiveExposuresContainerViewModel: ObservableObject {
     @Published var positiveExposures = [PositiveExposures]()
     
-    func fetch() async throws {
+    func fetch() throws  {
+        guard let data = UserDefaults.standard.data(forKey: "ENExposureWindow") else {
+            return
+        }
         
+        let exposureWindows = try JSONDecoder().decode([ExposureWindow].self, from: data)
+        let rawPositiveExposures = exposureWindows.reduce(into: [String: Int]()) { partialResult, window in
+            let dateString = DateFormatter.dateLabel.string(from: window.date)
+            partialResult[dateString] = (partialResult[dateString] ?? 0) + 1
+        }
+        positiveExposures = rawPositiveExposures
+            .map({ PositiveExposures(dateString: $0, count: "\($1)") })
     }
 }
 
 struct PositiveExposures {
-    
+    let dateString: String
+    let count: String
 }
 
 struct PositiveExposuresContainer_Previews: PreviewProvider {

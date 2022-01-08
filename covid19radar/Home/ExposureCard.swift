@@ -10,6 +10,8 @@ import SwiftUI
 struct ExposureCard: View {
     @ObservedObject private var viewModel = ExposureCardViewModel()
     
+    @State private var isActivePositiveExposure = false
+    
     var body: some View {
         ZStack {
             CardBackground()
@@ -25,10 +27,16 @@ struct ExposureCard: View {
                 DefaultButton(
                     systemImageName: "person.2.fill",
                     title: "接触結果の確認") {
-                        
+                        isActivePositiveExposure = true
                     }
             }
             .padding(32)
+            NavigationLink(
+                isActive: $isActivePositiveExposure,
+                destination: {
+                    PositiveExposuresContainer()
+                },
+                label: { EmptyView() })
         }
         .onAppear {
             
