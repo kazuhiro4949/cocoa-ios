@@ -19,6 +19,7 @@ clone app base on [cocoa-mhlw/cocoa](https://github.com/cocoa-mhlw/cocoa)
 11. [ ] universal links
 12. [ ] device check
 13. [ ] inquery
+16. [ ] localization
 14. [ ] logger
 15. [ ] design upgrading
 
