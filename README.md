@@ -11,8 +11,11 @@ clone app base on [cocoa-mhlw/cocoa](https://github.com/cocoa-mhlw/cocoa)
 5. [x] Setting files for dev
 7. [x] helth check UI
 11. [x] terms agreement
-8. [ ] Risk display 
-10. [ ] universal links
+8. [x] Risk display 
+9. [x] Q&A
+10. [x] share app
+11. [ ] universal links
 12. [ ] device check
-13. [ ] share app & inquery & qa and etc...
-14. [ ] fix design
+13. [ ] inquery
+14. [ ] logger
+15. [ ] fix design
