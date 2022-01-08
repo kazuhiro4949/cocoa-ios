@@ -20,7 +20,7 @@ clone app base on [cocoa-mhlw/cocoa](https://github.com/cocoa-mhlw/cocoa)
 12. [ ] device check
 13. [ ] inquery
 14. [ ] logger
-15. [ ] fix design
+15. [ ] update design
 
 ## env
 1. [ ] CI
