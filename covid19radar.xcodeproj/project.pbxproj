@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C52CE7A2789B22600F89B68 /* NoPositiveExposure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C52CE792789B22600F89B68 /* NoPositiveExposure.swift */; };
+		2C52CE7C2789B3FE00F89B68 /* AppShareSheetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C52CE7B2789B3FE00F89B68 /* AppShareSheetButton.swift */; };
+		2C52CE7E2789B8DA00F89B68 /* SomePositiveExposures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C52CE7D2789B8DA00F89B68 /* SomePositiveExposures.swift */; };
+		2C52CE802789BC2C00F89B68 /* PositiveExposuresContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C52CE7F2789BC2C00F89B68 /* PositiveExposuresContainer.swift */; };
 		2C57017A2780421F00EAAE52 /* URLSession+Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5701792780421F00EAAE52 /* URLSession+Spec.swift */; };
 		2C57017C278046D900EAAE52 /* DiagnosisSubmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57017B278046D900EAAE52 /* DiagnosisSubmission.swift */; };
 		2C570180278046F900EAAE52 /* RiskLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57017F278046F900EAAE52 /* RiskLevel.swift */; };
@@ -87,6 +91,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C52CE792789B22600F89B68 /* NoPositiveExposure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoPositiveExposure.swift; sourceTree = "<group>"; };
+		2C52CE7B2789B3FE00F89B68 /* AppShareSheetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShareSheetButton.swift; sourceTree = "<group>"; };
+		2C52CE7D2789B8DA00F89B68 /* SomePositiveExposures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomePositiveExposures.swift; sourceTree = "<group>"; };
+		2C52CE7F2789BC2C00F89B68 /* PositiveExposuresContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositiveExposuresContainer.swift; sourceTree = "<group>"; };
 		2C5701792780421F00EAAE52 /* URLSession+Spec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Spec.swift"; sourceTree = "<group>"; };
 		2C57017B278046D900EAAE52 /* DiagnosisSubmission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisSubmission.swift; sourceTree = "<group>"; };
 		2C57017F278046F900EAAE52 /* RiskLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskLevel.swift; sourceTree = "<group>"; };
@@ -179,6 +187,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C52CE772789B1D300F89B68 /* PosiveExposure */ = {
+			isa = PBXGroup;
+			children = (
+				2C52CE7F2789BC2C00F89B68 /* PositiveExposuresContainer.swift */,
+				2C52CE792789B22600F89B68 /* NoPositiveExposure.swift */,
+				2C52CE7D2789B8DA00F89B68 /* SomePositiveExposures.swift */,
+			);
+			path = PosiveExposure;
+			sourceTree = "<group>";
+		};
 		2C5701782780420B00EAAE52 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,20 +305,19 @@
 			isa = PBXGroup;
 			children = (
 				2C5701932780626500EAAE52 /* covid19radar.entitlements */,
-				2C57018E27805D7B00EAAE52 /* Error */,
-				2C57018927805A9100EAAE52 /* Backport */,
-				2C5701782780420B00EAAE52 /* Model */,
 				2C9526BB277EB16D005DE269 /* AppDelegate.swift */,
 				2C9526BD277EB16D005DE269 /* SceneDelegate.swift */,
 				2C9526BF277EB16D005DE269 /* ViewController.swift */,
 				2C9526FB277ECF1E005DE269 /* MainViewController.swift */,
 				2C9526FD277ECF43005DE269 /* TabBarController.swift */,
+				2C5701782780420B00EAAE52 /* Model */,
+				2C952706277EE1BA005DE269 /* Global */,
+				2C5701AC278275AF00EAAE52 /* Tutorial */,
 				2C9526FF277ED27D005DE269 /* Home */,
 				2C952707277EE1CF005DE269 /* Usage */,
 				2C952703277ED6B0005DE269 /* Inquery */,
 				2C95270A277EE4C1005DE269 /* Others */,
-				2C952706277EE1BA005DE269 /* Global */,
-				2C5701AC278275AF00EAAE52 /* Tutorial */,
+				2C52CE772789B1D300F89B68 /* PosiveExposure */,
 				2C9526C1277EB16D005DE269 /* Main.storyboard */,
 				2C9526C4277EB16F005DE269 /* Assets.xcassets */,
 				2C9526C6277EB16F005DE269 /* LaunchScreen.storyboard */,
@@ -351,11 +368,14 @@
 		2C952706277EE1BA005DE269 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				2C57018927805A9100EAAE52 /* Backport */,
+				2C57018E27805D7B00EAAE52 /* Error */,
 				2C9654AB278345DC007A08FF /* OverlayLoading.swift */,
 				2C9526ED277EBBEB005DE269 /* DefaultButton.swift */,
 				2C9625092782E378003BFCAB /* SecondaryButton.swift */,
 				2C9625072782DAE2003BFCAB /* WebView.swift */,
 				2C96250B2782E720003BFCAB /* LoadingState.swift */,
+				2C52CE7B2789B3FE00F89B68 /* AppShareSheetButton.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -541,19 +561,23 @@
 				2C5701822780470500EAAE52 /* ReportType.swift in Sources */,
 				2C57017A2780421F00EAAE52 /* URLSession+Spec.swift in Sources */,
 				2C9526EE277EBBEB005DE269 /* DefaultButton.swift in Sources */,
+				2C52CE7C2789B3FE00F89B68 /* AppShareSheetButton.swift in Sources */,
 				2C9526C0277EB16D005DE269 /* ViewController.swift in Sources */,
 				2C9654AC278345DC007A08FF /* OverlayLoading.swift in Sources */,
 				2C9526FE277ECF43005DE269 /* TabBarController.swift in Sources */,
 				2C5701A62781518300EAAE52 /* LocalStore.swift in Sources */,
 				2C9526F6277EC26C005DE269 /* ExposureCard.swift in Sources */,
+				2C52CE7E2789B8DA00F89B68 /* SomePositiveExposures.swift in Sources */,
 				2C95270E277EEB04005DE269 /* HowToTraceExposure.swift in Sources */,
 				2C5701952780642D00EAAE52 /* URLRequest+Spec.swift in Sources */,
 				2C5701862780538400EAAE52 /* DateFormatter+Spec.swift in Sources */,
+				2C52CE802789BC2C00F89B68 /* PositiveExposuresContainer.swift in Sources */,
 				2C9526BC277EB16D005DE269 /* AppDelegate.swift in Sources */,
 				2C9654A127832106007A08FF /* HelthCheckActive.swift in Sources */,
 				2C57018B27805AA800EAAE52 /* ENManager+Backport.swift in Sources */,
 				2C5701B82782767000EAAE52 /* TutorialEnableEN.swift in Sources */,
 				2C9526F4277EC230005DE269 /* HelthCheckBoard.swift in Sources */,
+				2C52CE7A2789B22600F89B68 /* NoPositiveExposure.swift in Sources */,
 				2C5701972780643B00EAAE52 /* URL+Spec.swift in Sources */,
 				2C9625062782D34E003BFCAB /* Tutorial.swift in Sources */,
 				2C9526F2277EC1D1005DE269 /* CardBackground.swift in Sources */,
