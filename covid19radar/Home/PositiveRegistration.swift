@@ -50,7 +50,7 @@ struct PositiveRegistration: View {
             
             if viewModel.sympotom != .unknown {
                 Section {
-                    DatePicker("選択してください:", selection: $viewModel.date, displayedComponents: .date)
+                    DatePicker("選択してください", selection: $viewModel.date, displayedComponents: .date)
                 } header: {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("症状が始まった最初の日を入力してください")
