@@ -12,7 +12,7 @@ struct PositiveRegistrationCard: View {
     var body: some View {
         ZStack {
             NavigationLink(
-                destination: PositiveRegistration(),
+                destination: PositiveRegistrationConfirm(),
                 isActive: $isNavigatingPositiveRegistration) { EmptyView() }
             
             CardBackground()

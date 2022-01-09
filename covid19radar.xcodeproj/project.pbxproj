@@ -11,6 +11,8 @@
 		2C52CE7C2789B3FE00F89B68 /* AppShareSheetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C52CE7B2789B3FE00F89B68 /* AppShareSheetButton.swift */; };
 		2C52CE7E2789B8DA00F89B68 /* SomePositiveExposures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C52CE7D2789B8DA00F89B68 /* SomePositiveExposures.swift */; };
 		2C52CE802789BC2C00F89B68 /* PositiveExposuresContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C52CE7F2789BC2C00F89B68 /* PositiveExposuresContainer.swift */; };
+		2C52CE83278A932C00F89B68 /* PositiveRegistrationThanks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C52CE82278A932C00F89B68 /* PositiveRegistrationThanks.swift */; };
+		2C52CE85278A96C600F89B68 /* PositiveRegistrationConfirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C52CE84278A96C600F89B68 /* PositiveRegistrationConfirm.swift */; };
 		2C57017A2780421F00EAAE52 /* URLSession+Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5701792780421F00EAAE52 /* URLSession+Spec.swift */; };
 		2C57017C278046D900EAAE52 /* DiagnosisSubmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57017B278046D900EAAE52 /* DiagnosisSubmission.swift */; };
 		2C570180278046F900EAAE52 /* RiskLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57017F278046F900EAAE52 /* RiskLevel.swift */; };
@@ -95,6 +97,8 @@
 		2C52CE7B2789B3FE00F89B68 /* AppShareSheetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShareSheetButton.swift; sourceTree = "<group>"; };
 		2C52CE7D2789B8DA00F89B68 /* SomePositiveExposures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomePositiveExposures.swift; sourceTree = "<group>"; };
 		2C52CE7F2789BC2C00F89B68 /* PositiveExposuresContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositiveExposuresContainer.swift; sourceTree = "<group>"; };
+		2C52CE82278A932C00F89B68 /* PositiveRegistrationThanks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositiveRegistrationThanks.swift; sourceTree = "<group>"; };
+		2C52CE84278A96C600F89B68 /* PositiveRegistrationConfirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositiveRegistrationConfirm.swift; sourceTree = "<group>"; };
 		2C5701792780421F00EAAE52 /* URLSession+Spec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Spec.swift"; sourceTree = "<group>"; };
 		2C57017B278046D900EAAE52 /* DiagnosisSubmission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisSubmission.swift; sourceTree = "<group>"; };
 		2C57017F278046F900EAAE52 /* RiskLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskLevel.swift; sourceTree = "<group>"; };
@@ -195,6 +199,16 @@
 				2C52CE7D2789B8DA00F89B68 /* SomePositiveExposures.swift */,
 			);
 			path = PosiveExposure;
+			sourceTree = "<group>";
+		};
+		2C52CE81278A930F00F89B68 /* PositiveRegistration */ = {
+			isa = PBXGroup;
+			children = (
+				2C952715277EFE11005DE269 /* PositiveRegistration.swift */,
+				2C52CE82278A932C00F89B68 /* PositiveRegistrationThanks.swift */,
+				2C52CE84278A96C600F89B68 /* PositiveRegistrationConfirm.swift */,
+			);
+			path = PositiveRegistration;
 			sourceTree = "<group>";
 		};
 		2C5701782780420B00EAAE52 /* Model */ = {
@@ -317,6 +331,7 @@
 				2C952707277EE1CF005DE269 /* Usage */,
 				2C952703277ED6B0005DE269 /* Inquery */,
 				2C95270A277EE4C1005DE269 /* Others */,
+				2C52CE81278A930F00F89B68 /* PositiveRegistration */,
 				2C52CE772789B1D300F89B68 /* PosiveExposure */,
 				2C9526C1277EB16D005DE269 /* Main.storyboard */,
 				2C9526C4277EB16F005DE269 /* Assets.xcassets */,
@@ -351,7 +366,6 @@
 				2C9526EB277EB18F005DE269 /* Home.swift */,
 				2C9526F5277EC26C005DE269 /* ExposureCard.swift */,
 				2C9526F7277EC52F005DE269 /* PositiveRegistrationCard.swift */,
-				2C952715277EFE11005DE269 /* PositiveRegistration.swift */,
 				2C9526F1277EC1D1005DE269 /* CardBackground.swift */,
 			);
 			path = Home;
@@ -573,6 +587,7 @@
 				2C5701862780538400EAAE52 /* DateFormatter+Spec.swift in Sources */,
 				2C52CE802789BC2C00F89B68 /* PositiveExposuresContainer.swift in Sources */,
 				2C9526BC277EB16D005DE269 /* AppDelegate.swift in Sources */,
+				2C52CE85278A96C600F89B68 /* PositiveRegistrationConfirm.swift in Sources */,
 				2C9654A127832106007A08FF /* HelthCheckActive.swift in Sources */,
 				2C57018B27805AA800EAAE52 /* ENManager+Backport.swift in Sources */,
 				2C5701B82782767000EAAE52 /* TutorialEnableEN.swift in Sources */,
@@ -602,6 +617,7 @@
 				2C9526BE277EB16D005DE269 /* SceneDelegate.swift in Sources */,
 				2C5701B42782763200EAAE52 /* TutorialTerms.swift in Sources */,
 				2C57017C278046D900EAAE52 /* DiagnosisSubmission.swift in Sources */,
+				2C52CE83278A932C00F89B68 /* PositiveRegistrationThanks.swift in Sources */,
 				2C96549A27830F47007A08FF /* Config.swift in Sources */,
 				2C952716277EFE11005DE269 /* PositiveRegistration.swift in Sources */,
 				2C96250C2782E720003BFCAB /* LoadingState.swift in Sources */,
