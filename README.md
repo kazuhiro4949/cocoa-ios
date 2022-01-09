@@ -2,7 +2,9 @@
 
 clone app base on [cocoa-mhlw/cocoa](https://github.com/cocoa-mhlw/cocoa)
 
-# Feature
+# progress
+
+## feature
 
 1. [x] rough design
 2. [x] register temporary diagnosis keys
@@ -11,8 +13,27 @@ clone app base on [cocoa-mhlw/cocoa](https://github.com/cocoa-mhlw/cocoa)
 5. [x] Setting files for dev
 7. [x] helth check UI
 11. [x] terms agreement
-8. [ ] Risk display 
-10. [ ] universal links
+8. [x] Risk display 
+9. [x] Q&A
+10. [x] share app
+11. [ ] universal links
 12. [ ] device check
-13. [ ] share app & inquery & qa and etc...
-14. [ ] fix design
+13. [ ] inquery
+16. [ ] localization
+17. [ ] accesibility
+18. [ ] logger
+19. [ ] design upgrading
+
+## env
+1. [ ] CI
+2. [ ] Configuration
+3. [ ] UnitTest
+4. [ ] CD
+5. [ ] Swift Package Manager
+6. [ ] Refactoring
+
+# cocoa-ios
+
+clone app base on [cocoa-mhlw/cocoa](https://github.com/cocoa-mhlw/cocoa)
+
+
