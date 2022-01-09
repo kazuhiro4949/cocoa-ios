@@ -127,10 +127,41 @@ class ExposureManager {
                 throw AppErorr.general
             }
             
-            let encodedSummaries = try JSONEncoder().encode(summary.daySummaries.map(ExposureDaySummary.init))
-            let encodedWindows = try JSONEncoder().encode(windows.map(ExposureWindow.init))
+            let exposureDaySumaries = summary.daySummaries.map(ExposureDaySummary.init)
+            let exposureWindows = windows.map(ExposureWindow.init)
+            
+            guard let summariesData = UserDefaults.standard.data(forKey: "ENExposureDaySummary"),
+                  let windowsData = UserDefaults.standard.data(forKey: "ENExposureWindow") else {
+                      throw AppErorr.general
+                  }
+            
+            let storedSummaries = try JSONDecoder().decode([ExposureDaySummary].self, from: summariesData)
+            let storedWindows = try JSONDecoder().decode([ExposureWindow].self, from: windowsData)
+            let totalSummaries = Array(Set(storedSummaries + exposureDaySumaries))
+            let totalWindows = Array(Set(storedWindows + exposureWindows))
+            
+            let encodedSummaries = try JSONEncoder().encode(totalSummaries)
+            let encodedWindows = try JSONEncoder().encode(totalWindows)
             UserDefaults.standard.set(encodedSummaries, forKey: "ENExposureDaySummary")
             UserDefaults.standard.set(encodedWindows, forKey: "ENExposureWindow")
+            
+            // TODO: - refactoring (the following lines are in out of this method?)
+
+            let hasRisk = totalSummaries.contains { summary in
+                20.0 < summary.daySummary.scoreSum
+            } // TODO: -
+            
+            if hasRisk {
+                let settings = await UNUserNotificationCenter.current().backport.getNotificationSettings()
+                if settings.authorizationStatus == .authorized {
+                    let content = UNMutableNotificationContent();
+                    content.title = "重要なお知らせ"
+                    content.body = "新型コロナウイルス感染症の陽性登録者と接触した可能性があります。タップして詳細を確認してください。"
+                    
+                    let request = UNNotificationRequest(identifier: "notification_id_cocoa", content: content, trigger: nil)
+                    try await UNUserNotificationCenter.current().add(request)
+                }
+            }
         } else {
 //            let info = try await enManager.getExposureInfo(summary: summary, userExplanation: "説明")
 //            guard let info = info else {
@@ -143,6 +174,7 @@ class ExposureManager {
 //            UserDefaults.standard.set(encodedSummaries, forKey: "ENExposureDaySummary")
 //            UserDefaults.standard.set(encodedInformationList, forKey: "ENExposureInformation")
         }
+        
         
         let dict = UserDefaults.standard.dictionary(forKey: "LastProcessTekTimestamp")
         var lastProcessTimestampList = (dict as? [String: Int64]) ?? [String: Int64]()
@@ -323,7 +355,7 @@ class ExposureManager {
 }
 
 // for persistant
-struct ExposureWindow: Codable {
+struct ExposureWindow: Codable, Equatable, Hashable {
     let calibrationConfidence: UInt8
     let date: Date
     let diagnosisReportType: UInt32
@@ -339,7 +371,7 @@ struct ExposureWindow: Codable {
     }
 }
 
-struct ScanInstance : Codable {
+struct ScanInstance : Codable, Equatable, Hashable {
     let minimumAttenuation: UInt8
     let typicalAttenuation: UInt8
     let secondsSinceLastScan: Int
@@ -351,7 +383,7 @@ struct ScanInstance : Codable {
     }
 }
 
-struct ExposureDaySummary: Codable {
+struct ExposureDaySummary: Codable, Equatable, Hashable {
     let date: Date
     let confirmedTestSummary: ExposureSummaryItem?
     let confirmedClinicalDiagnosisSummary: ExposureSummaryItem?
@@ -369,7 +401,7 @@ struct ExposureDaySummary: Codable {
     }
 }
 
-struct ExposureSummaryItem : Codable {
+struct ExposureSummaryItem : Codable, Equatable, Hashable {
     let maximumScore: Double
     let scoreSum: Double
     let weightedDurationSum: TimeInterval

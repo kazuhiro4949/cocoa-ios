@@ -73,6 +73,7 @@
 		2C9654A727832DD2007A08FF /* HelthCheckNeedsConfirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9654A627832DD2007A08FF /* HelthCheckNeedsConfirm.swift */; };
 		2C9654AA27834597007A08FF /* SwiftUIReplicator in Frameworks */ = {isa = PBXBuildFile; productRef = 2C9654A927834597007A08FF /* SwiftUIReplicator */; };
 		2C9654AC278345DC007A08FF /* OverlayLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9654AB278345DC007A08FF /* OverlayLoading.swift */; };
+		2CA7A9C4278B1CDE00E8B5C8 /* Backport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7A9C3278B1CDE00E8B5C8 /* Backport.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +163,7 @@
 		2C9654A427832B6E007A08FF /* HelthCheckTroubleShooting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelthCheckTroubleShooting.swift; sourceTree = "<group>"; };
 		2C9654A627832DD2007A08FF /* HelthCheckNeedsConfirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelthCheckNeedsConfirm.swift; sourceTree = "<group>"; };
 		2C9654AB278345DC007A08FF /* OverlayLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayLoading.swift; sourceTree = "<group>"; };
+		2CA7A9C3278B1CDE00E8B5C8 /* Backport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backport.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 				2C57018A27805AA800EAAE52 /* ENManager+Backport.swift */,
 				2C57018F27805F4400EAAE52 /* URLSession+Backport.swift */,
 				2C5701A1278145F000EAAE52 /* UNUserNotificationCenter+Backport.swift */,
+				2CA7A9C3278B1CDE00E8B5C8 /* Backport.swift */,
 			);
 			path = Backport;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				2C9526F6277EC26C005DE269 /* ExposureCard.swift in Sources */,
 				2C52CE7E2789B8DA00F89B68 /* SomePositiveExposures.swift in Sources */,
 				2C95270E277EEB04005DE269 /* HowToTraceExposure.swift in Sources */,
+				2CA7A9C4278B1CDE00E8B5C8 /* Backport.swift in Sources */,
 				2C5701952780642D00EAAE52 /* URLRequest+Spec.swift in Sources */,
 				2C5701862780538400EAAE52 /* DateFormatter+Spec.swift in Sources */,
 				2C52CE802789BC2C00F89B68 /* PositiveExposuresContainer.swift in Sources */,

@@ -8,6 +8,7 @@
 import UIKit
 import SwiftUI
 
+@MainActor
 class MainViewController: UIViewController {
     private var rootTabBarController: TabBarController!
     private var tutorialViewController: UIHostingController<Tutorial>!
@@ -28,9 +29,16 @@ class MainViewController: UIViewController {
                     self?.rootTabBarController.selectedIndex = 1
                 }
                 
-                Task {
+                Task { @MainActor [weak self] in
                     try await ExposureManager.shared.activateENManager()
                     try await ExposureManager.shared.detectExposures()
+                    
+                    let success = try await UNUserNotificationCenter.current().backport.requestAuthorization(options: [.alert])
+                    if !success {
+                        let alertController = UIAlertController(title: "通知をご利用いただくために", message: "接触の通知をご利用いただくためには、本アプリのプッシュ通知を有効にしてください。", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        self?.present(alertController, animated: true, completion: nil)
+                    }
                 }
             })
             
@@ -42,7 +50,6 @@ class MainViewController: UIViewController {
             
             UserDefaults.standard.set(true, forKey: "isTutorialLaunched")
         }
-        // Do any additional setup after loading the view.
     }
     
 

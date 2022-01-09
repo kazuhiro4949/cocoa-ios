@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -35,3 +36,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        if #available(iOS 14, *) {
+            completionHandler([.banner, .list])
+        } else {
+            completionHandler(.alert)
+        }
+    }
+    
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        // TODO: - deeplink
+        completionHandler()
+    }
+}

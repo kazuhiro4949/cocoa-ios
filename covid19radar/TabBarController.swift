@@ -8,6 +8,7 @@
 import UIKit
 import SwiftUI
 
+@MainActor
 class TabBarController: UITabBarController {
     let homeViewController: UIHostingController<Home> = {
         let vc = UIHostingController(rootView: Home())
