@@ -16,6 +16,7 @@ clone app base on [cocoa-mhlw/cocoa](https://github.com/cocoa-mhlw/cocoa)
 8. [x] Risk display 
 9. [x] Q&A
 10. [x] share app
+10. [x] local notification
 11. [ ] universal links
 12. [ ] device check
 13. [ ] inquery
