@@ -15,8 +15,8 @@ struct PositiveRegistrationCard: View {
         ZStack {
             NavigationLink(
                 destination: PositiveRegistrationConfirm(),
-                tag: HomeNavigationCoordinator.Destination.positiveRegistrationConfirm,
-                selection: $navigationCoordinator.destination) { EmptyView() }
+                tag: HomeNavigationCoordinator.Tag.positiveRegistrationConfirm,
+                selection: $navigationCoordinator.selection) { EmptyView() }
             
             CardBackground()
             VStack(spacing: 32) {
@@ -30,7 +30,7 @@ struct PositiveRegistrationCard: View {
                 DefaultButton(
                     systemImageName: "icloud.and.arrow.up.fill",
                     title: "陽性情報の登録") {
-                        navigationCoordinator.transtion(.positiveRegistrationConfirm)
+                        navigationCoordinator.select(tag: .positiveRegistrationConfirm)
                     }
             }
             .padding(32)

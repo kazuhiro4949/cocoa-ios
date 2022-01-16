@@ -94,20 +94,27 @@ struct HomeNavigationView<Content: View>: View {
     }
 }
 
-class HomeNavigationCoordinator: ObservableObject {
-    enum Destination {
+protocol NavigationCoordinator: ObservableObject {
+    associatedtype Tag
+    var selection: Tag? { get set }
+    func select(tag: Tag)
+    
+}
+
+class HomeNavigationCoordinator: NavigationCoordinator {
+    enum Tag {
         case positiveRegistrationConfirm
         case positiveRegistration
         case positiveExposure
     }
     
-    @Published var destination: Destination?
+    @Published var selection: Tag?
     
     func popToRoot() {
-        destination = nil
+        selection = nil
     }
     
-    func transtion(_ destination: Destination) {
-        self.destination = destination
+    func select(tag: Tag) {
+        self.selection = tag
     }
 }

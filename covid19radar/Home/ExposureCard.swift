@@ -27,14 +27,14 @@ struct ExposureCard: View {
                 DefaultButton(
                     systemImageName: "person.2.fill",
                     title: "接触結果の確認") {
-                        navigationCoordinator.transtion(.positiveExposure)
+                        navigationCoordinator.select(tag: .positiveExposure)
                     }
             }
             .padding(32)
             NavigationLink(
                 destination: PositiveExposuresContainer(),
-                tag: HomeNavigationCoordinator.Destination.positiveExposure,
-                selection: $navigationCoordinator.destination) { EmptyView() }
+                tag: HomeNavigationCoordinator.Tag.positiveExposure,
+                selection: $navigationCoordinator.selection) { EmptyView() }
         }
         .onAppear {
             
