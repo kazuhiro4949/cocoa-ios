@@ -11,13 +11,18 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    
+    private var mainViewController: MainViewController? {
+        window?.rootViewController as? MainViewController
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        handleUserActivityIfNeeded(connectionOptions.userActivities.first)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -54,6 +59,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        handleUserActivityIfNeeded(userActivity)
+    }
+    
+    private func handleUserActivityIfNeeded(_ userActivity: NSUserActivity?) {
+        guard let userActivity = userActivity,
+                userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+              let webpageURL = userActivity.webpageURL,
+              let components = URLComponents(url: webpageURL, resolvingAgainstBaseURL: false) else {
+                  return
+              }
+        
+        if components.path.hasPrefix("/cocoa/a/") {
+            if let processNumber = components.queryItems?.first(where: { $0.name == "pn" }) {
+                
+            } else {
+                
+            }
+        }
+    }
 }
 

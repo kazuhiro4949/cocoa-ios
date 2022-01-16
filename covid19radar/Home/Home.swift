@@ -11,7 +11,7 @@ struct Home: View {
     @State var isRadarAnimating = false
     
     var body: some View {
-        NavigationView {
+        HomeNavigationCoordinator.make {
             ZStack {
                 Color.init(white: 0.95).edgesIgnoringSafeArea(.all)
                 GeometryReader { proxy in
@@ -42,6 +42,7 @@ struct Home: View {
                 }
             }
         }
+        .environmentObject(HomeNavigationCoordinator())
     }
 }
 

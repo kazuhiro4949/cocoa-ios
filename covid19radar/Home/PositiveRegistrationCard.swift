@@ -9,11 +9,14 @@ import SwiftUI
 
 struct PositiveRegistrationCard: View {
     @State private var isNavigatingPositiveRegistration = false
+    @EnvironmentObject var navigationCoordinator: HomeNavigationCoordinator
+    
     var body: some View {
         ZStack {
             NavigationLink(
                 destination: PositiveRegistrationConfirm(),
-                isActive: $isNavigatingPositiveRegistration) { EmptyView() }
+                tag: HomeNavigationCoordinator.Destination.positiveRegistrationConfirm,
+                selection: $navigationCoordinator.destination) { EmptyView() }
             
             CardBackground()
             VStack(spacing: 32) {
@@ -27,7 +30,7 @@ struct PositiveRegistrationCard: View {
                 DefaultButton(
                     systemImageName: "icloud.and.arrow.up.fill",
                     title: "陽性情報の登録") {
-                            isNavigatingPositiveRegistration = true
+                        navigationCoordinator.transtion(.positiveRegistrationConfirm)
                     }
             }
             .padding(32)

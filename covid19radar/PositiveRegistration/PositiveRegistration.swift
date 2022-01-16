@@ -33,6 +33,8 @@ struct PositiveRegistration: View {
     @State var isPresentedSuccessAlert = false
     @ObservedObject var viewModel = PositiveRegistrationViewModel()
     
+    @EnvironmentObject var navigationCoordinator: HomeNavigationCoordinator
+    
     var body: some View {
         Form {
             Section {

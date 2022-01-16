@@ -10,7 +10,7 @@ import SwiftUI
 struct ExposureCard: View {
     @ObservedObject private var viewModel = ExposureCardViewModel()
     
-    @State private var isActivePositiveExposure = false
+    @EnvironmentObject private var navigationCoordinator: HomeNavigationCoordinator
     
     var body: some View {
         ZStack {
@@ -27,16 +27,14 @@ struct ExposureCard: View {
                 DefaultButton(
                     systemImageName: "person.2.fill",
                     title: "接触結果の確認") {
-                        isActivePositiveExposure = true
+                        navigationCoordinator.transtion(.positiveExposure)
                     }
             }
             .padding(32)
             NavigationLink(
-                isActive: $isActivePositiveExposure,
-                destination: {
-                    PositiveExposuresContainer()
-                },
-                label: { EmptyView() })
+                destination: PositiveExposuresContainer(),
+                tag: HomeNavigationCoordinator.Destination.positiveExposure,
+                selection: $navigationCoordinator.destination) { EmptyView() }
         }
         .onAppear {
             

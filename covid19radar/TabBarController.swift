@@ -83,3 +83,30 @@ class TabBarController: UITabBarController {
     */
 
 }
+
+class HomeNavigationCoordinator: ObservableObject {
+    enum Destination {
+        case positiveRegistrationConfirm
+        case positiveRegistration
+        case positiveExposure
+    }
+    
+    @Published var destination: Destination?
+    
+    func popToRoot() {
+        destination = nil
+    }
+    
+    func transtion(_ destination: Destination) {
+        self.destination = destination
+    }
+    
+    
+    static func make<Content: View>(@ViewBuilder _ content: () -> Content) -> some View {
+        NavigationView {
+            content()
+        }
+        .environmentObject(HomeNavigationCoordinator())
+    }
+}
+
