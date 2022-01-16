@@ -61,7 +61,6 @@ class TabBarController: UITabBarController {
             tabBar.standardAppearance = tabBarAppearance
             tabBar.scrollEdgeAppearance = tabBarAppearance
         }
-        
     }
     
     private func setViewControllers() {
@@ -84,6 +83,17 @@ class TabBarController: UITabBarController {
 
 }
 
+struct HomeNavigationView<Content: View>: View {
+    var content: () -> Content
+    
+    var body: some View {
+        NavigationView {
+            content()
+        }
+        .environmentObject(HomeNavigationCoordinator())
+    }
+}
+
 class HomeNavigationCoordinator: ObservableObject {
     enum Destination {
         case positiveRegistrationConfirm
@@ -100,13 +110,4 @@ class HomeNavigationCoordinator: ObservableObject {
     func transtion(_ destination: Destination) {
         self.destination = destination
     }
-    
-    
-    static func make<Content: View>(@ViewBuilder _ content: () -> Content) -> some View {
-        NavigationView {
-            content()
-        }
-        .environmentObject(HomeNavigationCoordinator())
-    }
 }
-

@@ -12,8 +12,8 @@ extension URLSession {
         let config = URLSessionConfiguration.default
         config.httpAdditionalHeaders = [
             "Content-Type": "application/json",
-            "x-functions-key": Configure.plist.apiSecret,
-            "x-api-key": Configure.plist.apiKey
+            "x-functions-key": Config.plist.apiSecret,
+            "x-api-key": Config.plist.apiKey
         ]
         return URLSession(configuration: config)
     }()
@@ -22,7 +22,7 @@ extension URLSession {
         let config = URLSessionConfiguration.default
         config.httpAdditionalHeaders = [
             "Content-Type": "application/json; charset=utf-8",
-            "x-functions-key": Configure.plist.apiSecret,
+            "x-functions-key": Config.plist.apiSecret,
             "Accept": "*/*",
         ]
         return URLSession(configuration: config)
